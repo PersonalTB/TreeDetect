@@ -15,21 +15,15 @@ Necessary python components for this module are numpy, pandas and scipy for math
 To install the dependencies automatically, run:
 
 ```
-cd <path to this folder, where the requirements.txt is located>
+cd <path to the root folder, where the requirements.txt is located>
 pip install .
 ```
 
 ## Usage
 
-For an example on how to use the , see the example folder for a couple of ipython notebooks.
-
-* Background_Info_Notebook - the background to the processing
-
-Alternatively, you can use the `single_analysis_main.py` file in the root folder of the repo (outside of the src folder), alter any settings you wish to change therein and/or in the `confs/conf.yml` file, and then call it as follows:
-
-```
-python single_analysis_main.py
-```
+For an example on how to use the module, see: 
+*  `example/Background_Info_Notebook.ipynb` - a notebook on the background to the tree detection method and processing. 
+*  `single_analysis_main.py` - python script in the root folder, alter any settings you wish to change therein and/or in the `confs/conf.yml` file, and then call it with `python single_analysis_main.py`
 
 ## Authors
 
