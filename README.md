@@ -1,6 +1,6 @@
 # TreeDetect
 
-This is a python module for detecting trees with aerial photography and LiDAR data from PDOK geo-data sources.
+This is a python module for detecting trees with aerial photography from geo-data sources.
 
 ![Example of detected trees](Example.png)
 
