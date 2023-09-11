@@ -1,0 +1,45 @@
+general:
+    save_wms_data_to_hard_drive: False # bool, whether to save the data fetched from wms and wmc services to the hard drive for later use
+    save_results: True
+    n_retries: 3 # how many times to retry a single bbox analysis upon failure in a standard analysis pipeline call during big analyses
+    redo_if_already_processed: False
+
+###########################################
+# Settings for fetching data from WMS/WCS
+###########################################
+
+data:
+    api:
+        rgb: 
+            url: 'https://service.pdok.nl/hwh/luchtfotorgb/wms/v1_0' 
+            layer: 'Actueel_ortho25' # source for the rgb luchtfoto's; resolution: 25 cm per pixel
+            servicetype: 'WebMapService'
+            version: '1.3.0'
+            format: 'image/jpeg'
+            save_format: 'jpg'
+            use: False
+            max_value: 255
+        nir: 
+            url: 'https://service.pdok.nl/hwh/luchtfotocir/wms/v1_0' 
+            layer: 'Actueel_ortho25IR' # source for the nir luchtfoto's; resolution: 25 cm per pixel
+            servicetype: 'WebMapService'
+            version: '1.3.0'
+            format: 'image/jpeg'
+            save_format: 'jpg'
+            use: True
+            max_value: 255
+    im_size_out: 1000 # how many pixels/measurements to include per picture?
+    pixel_size: 0.25 # how many meters are in a pixel? (here, set it to correspond to the most fine-grained data you have!)
+    coord_crs: 'EPSG:4326' # most widely-used coordinate reference system for NL; google maps uses it
+
+#####################################
+# Settings for scale-space analysis 
+#####################################
+
+scale_space:
+    minrad: 2.5 # RADIUS of the smallest gaussian kernel in meters. Must be >= 3 (pixels) * pixel_size in m! E.g. 3 * 0.25 = 0.75
+    maxrad: 20 # RADIUS of the biggest gaussian kernel in meters. 
+    steprad: 0.5 # steps to sample the scale space with, in meters. Should always be >= pixel_size in m, e.g. 0.25
+    threshold_rel_blob_peaks: 0.0025 # rel_threshold * max(image) is the threshold for when a peak is considered a local maximum, rather than randomness
+    blob_overlap_threshold: 0.5 # float, the ratio/amount of overlap in terms of the smaller blob's radius two blobs can have before being pruned.
+    output_file_format: 'csv' # options: csv (for scale space detection)
