@@ -2,6 +2,8 @@
 
 This is a python module for detecting trees with aerial photography and LiDAR data from PDOK geo-data sources.
 
+![Example of detected trees](Example.png)
+
 ## Getting Started
 
 These instructions provides information on how to setup a copy of the project, install any requirements, and how to run it on your local machine for development and testing purposes. 
